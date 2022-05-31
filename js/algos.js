@@ -45,7 +45,6 @@ function swap(i,j) {
 // j is the index of the second city
 function isLess(i, j) {
   displayBuffer.push(['compare', i, j]); // Do not delete this line (for display)
-  console.log("isLess - ");
 
   if(csvData[i].dist < csvData[j].dist) {
     return true;
@@ -57,7 +56,18 @@ function isLess(i, j) {
 
 
 function insertsort() {
-  console.log("insertsort - implement me !");
+  console.log("insertsort - ");
+
+  for(let i = 1; i < csvData.length; i++) {
+    let j = i;
+    let k = j - 1;
+
+    while(k >= 0 && isLess(j, k)) {
+      swap(k, j);
+      j--;
+      k--;
+    }
+  }
 }
 
 // -----------------------------------
@@ -65,7 +75,18 @@ function insertsort() {
 function selectionsort() {
   console.log("selectionsort - ");
 
+  for (let i = 0; i < csvData.length - 1; i++) {
+       let min = csvData[i];
+       let iMin = i;
 
+       for(let j = i + 1; j < csvData.length; j++) {
+         if(isLess(j, iMin)) {
+           min = csvData[j];
+           iMin = j;
+         }
+       }
+       swap(iMin, i)
+  }
 }
 
 // -----------------------------------
@@ -73,8 +94,7 @@ function selectionsort() {
 function bubblesort(city) {
   console.log("bubblesort - ");
 
-  let i;
-  let j = i + 1;
+  let i, j;
 
   // isLess(1, 2);
   // swap(1, 2);
