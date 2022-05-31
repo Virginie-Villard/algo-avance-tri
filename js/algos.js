@@ -20,18 +20,11 @@ function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
 
 // Calculates the distance between Grenoble and the given city
 function distanceFromGrenoble(city) {
-  // console.log(city);
+
   const grenobleLatitude  = 	45.188529;
   const grenobleLongitude = 	5.724524;
 
-  // debugger;
-
-  // city.latitude;
-  // city.longitude;
-  // nom_commune
-  // console.log(city.nom_commune + " : " + city.latitude + " / " + city.longitude);
-  // console.log(distance + " km.");
-  return distance = getDistanceFromLatLonInKm(grenobleLatitude, grenobleLongitude, city.latitude, city.longitude);
+  return  getDistanceFromLatLonInKm(grenobleLatitude, grenobleLongitude, city.latitude, city.longitude);
 }
 
 // Swap 2 values in array csvData
@@ -40,7 +33,11 @@ function distanceFromGrenoble(city) {
 function swap(i,j) {
   displayBuffer.push(['swap', i, j]); // Do not delete this line (for display)
 
-  console.log("swap - implement me !");
+  let k;
+
+  k = csvData[j];
+  csvData[j] = csvData[i];
+  csvData[i] = k;
 }
 
 // Returns true if city with index i in csvData is closer to Grenoble than city with index j
@@ -48,7 +45,12 @@ function swap(i,j) {
 // j is the index of the second city
 function isLess(i, j) {
   displayBuffer.push(['compare', i, j]); // Do not delete this line (for display)
-  console.log("isLess - implement me !");
+  console.log("isLess - ");
+
+  if(csvData[i].dist < csvData[j].dist) {
+    return true;
+  }
+  return false;
 }
 
 // -----------------------------------
@@ -61,13 +63,28 @@ function insertsort() {
 // -----------------------------------
 
 function selectionsort() {
-  console.log("selectionsort - implement me !");
+  console.log("selectionsort - ");
+
+
 }
 
 // -----------------------------------
 
-function bubblesort() {
-  console.log("bubblesort - implement me !");
+function bubblesort(city) {
+  console.log("bubblesort - ");
+
+  let i;
+  let j = i + 1;
+
+  // isLess(1, 2);
+  // swap(1, 2);
+  for(i = 0; i < csvData.length - 1; i++) {
+    for(j = i + 1; j < csvData.length; j++) {
+      if(isLess(j, i)) {
+        swap(i, j);
+      }
+    }
+  }
 }
 
 // -----------------------------------
