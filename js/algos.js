@@ -110,13 +110,33 @@ function bubblesort(city) {
 // -----------------------------------
 
 function shellsort() {
-  console.log("shellsort - implement me !");
+  console.log("shellsort - ");
+
+  gaps = [1, 4, 10, 23, 57, 132, 301, 701];
+
+  for(let sizeIndex = gaps.length-1; sizeIndex >= 0; sizeIndex--) {
+    let gap = gaps[sizeIndex];
+
+    for (let i = gap; i < csvData.length; i++) {
+
+      let j = i;
+      let k = j - gap;
+
+      while(k >= 0 && isLess(j, k)) {
+        swap(k, j);
+        j = j - gap;
+        k = k - gap;
+      }
+    }
+  }
+
 }
 
 // -----------------------------------
 
 function mergesort(start=0, length=N) {
-  console.log("mergesort - implement me !");
+  console.log("mergesort - ");
+
 }
 
 // -----------------------------------
