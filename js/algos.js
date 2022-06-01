@@ -134,26 +134,81 @@ function shellsort() {
 
 // -----------------------------------
 
-function mergesort(start=0, length=N) {
+function mergesort(start=0, length=N) { // tri par fusion
   console.log("mergesort - ");
+//
+//   let Q = N/2;
+//   let P = N - Q;
+//
+//   if(P >= 2) {
+//     let q = swap(start, P);
+//     if(Q >= 2) {
+//       swap(q, Q);
+//     }
+//   }
+//   else {
+//     q = start++;
+//   }
+//   merge(start, P, q, Q);
+// }
+//
+// function merge(start, P, q, Q) {
+//   for(i = 0; i < start - 1; ??) {
+//     if(p + )
+//   }
 
+  // length = csvData.length;
+
+//   if(N > 0) {
+//     mergesort(start, N / 2);
+//     mergesort(N / 2, N);
+//
+//     merge(start, N / 2, N);
+//   }
+// }
+//
+// function merge(start,n , N) {
+//   n = N / 2;
+//
+//   for(let i = 0; i < csvData.length; ) {
+//
+//   }
 }
 
 // -----------------------------------
 
-function heapsort() {
+function heapsort() { // tri par tas
   console.log("heapsort - implement me !");
 }
 
 // -----------------------------------
 
-function quicksort() {
-  console.log("quicksort - implement me !");
+function quicksort(first = 0, last = csvData.length - 1) { // tri rapide
+  //console.log("quicksort - ");
+
   if(first<last) {
     const pivot = partition(first, last, selectPivot(first, last));
     quicksort(first, pivot-1);
     quicksort(pivot+1, last);
   }
+}
+
+function selectPivot(first, last) {
+  return last;
+}
+
+function partition(first, last, pivot) {
+  swap(pivot, last);
+  j = first;
+
+  for(let i = first; i < last; i++) {
+    if(isLess(i, last)) {
+      swap(i, j);
+      j++;
+    }
+  }
+  swap(last, j);
+  return j;
 }
 
 // -----------------------------------
