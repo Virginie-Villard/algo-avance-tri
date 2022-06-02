@@ -216,55 +216,6 @@ function heap(length, i) {
   }
 }
 
-
-// Code de Nico pour tester pourquoi son code est plus rapide que le mien (- 3000 Comparaisons)
-// Mais c'était du aux coordonnées un peu différentes qu'on avait trouvé de Grenoble sur internet.
-
-// function heapsort() {
-//   creer_tas();
-//
-//   for(let i=N-1 ; i>=0 ; i--){
-//     swap(0, i);
-//     entasser(i, 0);
-//   }
-// }
-//
-// function creer_tas(){
-//   for(let i = Math.floor(N/2) ; i>=0 ; i--){
-//     entasser(N, i);
-//   }
-// }
-
-// function remonter(i){
-//   if(i != 0){
-//     parent = Entier((i-1)/2);
-//     swap(i, parent);
-//     remonter(parent);
-//   }
-// }
-
-// function entasser(fin, i){
-//   let gauche = 2*i+1;
-//   let droite = 2*i+2;
-//   let max = i;
-//
-//   // if(droite<fin && csvData[i]<csvData[droite]){
-//   // pour voir si enfant
-//   // on compare les trois pour avoir le parent
-//   // if(droite<fin && isLess(i, droite)){
-//   if(droite<fin && isLess(max, droite)){ // max pour la beauté
-//     max = droite;
-//   }
-//   // if(gauche<fin && csvData[i]<csvData[gauche]){
-//   if(gauche<fin && isLess(max, gauche)){
-//     max = gauche;
-//   }
-//   if(i != max){
-//     swap(max, i);
-//     entasser(fin, max);
-//   }
-// }
-
 // -----------------------------------
 
 function quicksort(first = 0, last = csvData.length - 1) { // tri rapide
