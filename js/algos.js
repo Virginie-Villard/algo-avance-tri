@@ -134,51 +134,49 @@ function shellsort() {
 
 // -----------------------------------
 
-function mergesort(start=0, length=N) { // tri par fusion
-  console.log("mergesort - ");
-//
-//   let Q = N/2;
-//   let P = N - Q;
-//
-//   if(P >= 2) {
-//     let q = swap(start, P);
-//     if(Q >= 2) {
-//       swap(q, Q);
-//     }
-//   }
-//   else {
-//     q = start++;
-//   }
-//   merge(start, P, q, Q);
-// }
-//
-// function merge(start, P, q, Q) {
-//   for(i = 0; i < start - 1; ??) {
-//     if(p + )
-//   }
+function mergesort(start= 0, length = N) { // tri par fusion
+  // console.log("mergesort - ");
 
-  // length = csvData.length;
+  if(length > 1) {
+    let half = Math.floor(length / 2); // Pour pouvoir gérer les array avec un nombre de cellules impaire
 
-//   if(N > 0) {
-//     mergesort(start, N / 2);
-//     mergesort(N / 2, N);
-//
-//     merge(start, N / 2, N);
-//   }
-// }
-//
-// function merge(start,n , N) {
-//   n = N / 2;
-//
-//   for(let i = 0; i < csvData.length; ) {
-//
-//   }
+    mergesort(start, half);
+    mergesort(start + half, length - half);
+
+    merge(start, start + half, length);
+  }
+}
+
+function merge(first, second, length) {
+  // first = first number of first array part
+  // second = first number of second array part
+  let firstEmptyPart = first === second;
+  let secondEmptyPart = second - first === length;
+
+  if(firstEmptyPart || secondEmptyPart) {
+    console.log("End")
+    return;
+  }
+
+  if(isLess(first, second)) {
+    console.log("isLess")
+    merge(first + 1, second, length - 1);
+  }
+
+  else {
+    console.log("Second > first !")
+    // Move csvData[second] to csvData[first] by swapping (décalle tout le reste du tableau)
+    for(let i = second; i >= first + 1; i--) {
+      swap(i, i - 1);
+    }
+    merge(first + 1, second + 1, length - 1);
+  }
 }
 
 // -----------------------------------
 
 function heapsort() { // tri par tas
-  console.log("heapsort - implement me !");
+  console.log("heapsort - implement me !"); // TODO
 }
 
 // -----------------------------------
